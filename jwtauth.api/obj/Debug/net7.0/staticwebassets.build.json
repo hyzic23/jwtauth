@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "nzedEp4zbl+X+qfUJTMtDeOtOKQxo0QqfLuNBZAOKYo=",
+  "Source": "jwtauth.api",
+  "BasePath": "_content/jwtauth.api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
