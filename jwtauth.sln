@@ -3,6 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "jwtauth.api", "jwtauth.api\jwtauth.api.csproj", "{CD260185-A12A-4AF2-8B4B-FFDC8AA60E51}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "jwtauth.dataaccess", "jwtauth.dataaccess\jwtauth.dataaccess.csproj", "{5504ECF9-11FB-4846-927D-C82915434BA0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "jwtauth.models", "jwtauth.models\jwtauth.models.csproj", "{C1BA7867-09B8-494D-BB57-708AE389D339}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -10,5 +16,19 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CD260185-A12A-4AF2-8B4B-FFDC8AA60E51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD260185-A12A-4AF2-8B4B-FFDC8AA60E51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD260185-A12A-4AF2-8B4B-FFDC8AA60E51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD260185-A12A-4AF2-8B4B-FFDC8AA60E51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5504ECF9-11FB-4846-927D-C82915434BA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5504ECF9-11FB-4846-927D-C82915434BA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5504ECF9-11FB-4846-927D-C82915434BA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5504ECF9-11FB-4846-927D-C82915434BA0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1BA7867-09B8-494D-BB57-708AE389D339}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1BA7867-09B8-494D-BB57-708AE389D339}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1BA7867-09B8-494D-BB57-708AE389D339}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1BA7867-09B8-494D-BB57-708AE389D339}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

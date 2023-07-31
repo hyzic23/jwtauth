@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "5w9V3xucNuAaxIey2BKVVwVNAOUMaje//71O4IZL7Rg4K730EvPcTdxLdm29CnnyAV+w3Ya4G6fogwX+BqV5Wg==",
+  "dgSpecHash": "K/F7eGoMxb3JxRLpywcyt8wGJ7f1cg+FJX8NKqENpT/7ghP+316YqJAvYvUuYOHoRGy/Vv55bZ0Hy6rrkY8/tA==",
   "success": true,
   "projectFilePath": "/Users/hyzic/Documents/sandbox/c#/jwtauth/jwtauth.dataaccess/jwtauth.dataaccess.csproj",
   "expectedPackageFiles": [

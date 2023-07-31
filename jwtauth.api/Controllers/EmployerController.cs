@@ -1,13 +1,17 @@
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using System;
 using System.Net;
 using System.Net.Http;
+using System.Linq;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace jwtauth.api.Controllers
 {
-    [Route("api/employee")]
+    [Authorize]
+    [Route("api/employee/")]
     [ApiController]
     public class EmployeeController : ControllerBase
     {
@@ -16,22 +20,43 @@ namespace jwtauth.api.Controllers
         }
 
         [HttpGet]
-        [Route("/GetAllEmployees")]
+        [Route("GetAllEmployees")]
         public async Task<List<EmployeeInfo>> GetAllEmployees()
         {
             var employeeInfo = await Task.FromResult(GetEmployeeInfo());
-            //var employeeInfo = await Task.Run(GetEmployeeInfo());
             return employeeInfo;
         }
 
         [HttpGet]
         public List<EmployeeInfo> Get()
         {
-            //var employeeInfo = await Task.From(GetEmployeeInfo());
             var employeeInfo = GetEmployeeInfo();
             return employeeInfo;
         }
 
+        [HttpGet]
+        [Route("GetAllEmployees/{id}")]
+        public async Task<List<EmployeeInfo>> GetAllEmployees(long id)
+        {
+            var employeeInfo = await Task.FromResult(GetEmployeeInfo().Where(x => x.Id == id).ToList());
+            return employeeInfo;
+        }
+
+        [HttpPost]
+        [Route("AddEmployee")]
+        public async Task<ActionResult<EmployeeInfo>> AddEmployee(EmployeeInfo request)
+        {
+            if(request != null)
+            {
+                List<EmployeeInfo> insertEmployee = new List<EmployeeInfo>();
+                insertEmployee.Add(request);
+                return await Task.FromResult(request);
+            }
+            else
+            {
+                return await Task.FromResult(BadRequest());
+            }
+        }
 
 
         private List<EmployeeInfo> GetEmployeeInfo()

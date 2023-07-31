@@ -1,0 +1,12 @@
+/Users/hyzic/Documents/sandbox/c#/jwtauth/jwtauth.models/bin/Debug/net7.0/jwtauth.models.deps.json
+/Users/hyzic/Documents/sandbox/c#/jwtauth/jwtauth.models/bin/Debug/net7.0/jwtauth.models.dll
+/Users/hyzic/Documents/sandbox/c#/jwtauth/jwtauth.models/bin/Debug/net7.0/jwtauth.models.pdb
+/Users/hyzic/Documents/sandbox/c#/jwtauth/jwtauth.models/obj/Debug/net7.0/jwtauth.models.csproj.AssemblyReference.cache
+/Users/hyzic/Documents/sandbox/c#/jwtauth/jwtauth.models/obj/Debug/net7.0/jwtauth.models.GeneratedMSBuildEditorConfig.editorconfig
+/Users/hyzic/Documents/sandbox/c#/jwtauth/jwtauth.models/obj/Debug/net7.0/jwtauth.models.AssemblyInfoInputs.cache
+/Users/hyzic/Documents/sandbox/c#/jwtauth/jwtauth.models/obj/Debug/net7.0/jwtauth.models.AssemblyInfo.cs
+/Users/hyzic/Documents/sandbox/c#/jwtauth/jwtauth.models/obj/Debug/net7.0/jwtauth.models.csproj.CoreCompileInputs.cache
+/Users/hyzic/Documents/sandbox/c#/jwtauth/jwtauth.models/obj/Debug/net7.0/jwtauth.models.dll
+/Users/hyzic/Documents/sandbox/c#/jwtauth/jwtauth.models/obj/Debug/net7.0/refint/jwtauth.models.dll
+/Users/hyzic/Documents/sandbox/c#/jwtauth/jwtauth.models/obj/Debug/net7.0/jwtauth.models.pdb
+/Users/hyzic/Documents/sandbox/c#/jwtauth/jwtauth.models/obj/Debug/net7.0/ref/jwtauth.models.dll
