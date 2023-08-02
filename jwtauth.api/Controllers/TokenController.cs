@@ -5,6 +5,8 @@ using System.IdentityModel.Tokens.Jwt;
 using Microsoft.AspNetCore.Mvc;
 using jwtauth.models;
 using jwtauth.dataaccess.IService;
+using jwtauth.api.Config;
+using Microsoft.Extensions.Options;
 
 namespace jwtauth.api.Controllers
 {
@@ -13,14 +15,16 @@ namespace jwtauth.api.Controllers
     public class TokenController : ControllerBase
     {
         private IConfiguration _configuration;
+        private IOptions<Jwt> _jwtSettings;
         private IUserInfoService _userService;
 
         public TokenController(IConfiguration configuration,
-                               IUserInfoService userService)
+                               IUserInfoService userService,
+                               IOptions<Jwt> jwtSettings)
         {
             _configuration = configuration;
             _userService = userService;
-
+            _jwtSettings = jwtSettings;
         }
 
         [HttpPost]
@@ -34,7 +38,7 @@ namespace jwtauth.api.Controllers
                 {
                     //create claims details based on the user information
                     var claims = new[]{
-                        new Claim(JwtRegisteredClaimNames.Sub,_configuration["Jwt:Subject"]),
+                        new Claim(JwtRegisteredClaimNames.Sub, _jwtSettings.Value.Subject),
                         new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                             new Claim(JwtRegisteredClaimNames.Iat, DateTime.UtcNow.ToString()),
                             new Claim("UserId", user.UserId.ToString()),
@@ -42,13 +46,22 @@ namespace jwtauth.api.Controllers
                             new Claim("UserName", user.UserName),
                             new Claim("Email", user.Email)
                     };
+                    //var claims = new[]{
+                    //    new Claim(JwtRegisteredClaimNames.Sub,_configuration["Jwt:Subject"]),
+                    //    new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+                    //        new Claim(JwtRegisteredClaimNames.Iat, DateTime.UtcNow.ToString()),
+                    //        new Claim("UserId", user.UserId.ToString()),
+                    //        new Claim("DisplayName", user.DisplayName),
+                    //        new Claim("UserName", user.UserName),
+                    //        new Claim("Email", user.Email)
+                    //};
 
                     //var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
-                    var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
+                    var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(_jwtSettings.Value.Key));
                     var signIn = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
                     var token = new JwtSecurityToken(
-                        _configuration["Jwt:Issuer"],
-                        _configuration["Jwt:Audience"],
+                        _jwtSettings.Value.Issuer,
+                        _jwtSettings.Value.Audience,
                         claims,
                         expires: DateTime.UtcNow.AddMinutes(10),
                         signingCredentials: signIn

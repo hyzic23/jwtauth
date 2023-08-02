@@ -1,4 +1,5 @@
 using System.Text;
+using jwtauth.api.Config;
 using jwtauth.dataaccess.Data;
 using jwtauth.dataaccess.IService;
 using jwtauth.dataaccess.Service;
@@ -11,6 +12,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 //builder.Services.AddDbContext<DatabaseContext>(x => x.UseNpgsql(builder.Configuration.GetConnectionString("dbConnect")));
+builder.Services.Configure<Jwt>(builder.Configuration.GetSection("Jwt"));
 builder.Services.AddDbContext<DatabaseContext>(o => o.UseNpgsql(builder.Configuration.GetConnectionString("dbConnect")));
 builder.Services.AddTransient<IEmployeeService, EmployeeService>();
 builder.Services.AddTransient<IUserInfoService, UserInfoService>();
