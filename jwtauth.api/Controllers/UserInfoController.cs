@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace jwtauth.api.Controllers
 {
-    [AllowAnonymous]
+    [Authorize]
     [Route("api/user/")]
     [ApiController]
     public class UserInfoController : ControllerBase
@@ -17,6 +17,7 @@ namespace jwtauth.api.Controllers
         {
             _service = service;
         }
+
 
         [HttpGet]
         [Route("GetAllUsers")]
@@ -38,6 +39,7 @@ namespace jwtauth.api.Controllers
             return Ok(user);
         }
 
+        [AllowAnonymous]
         [HttpPost]
         [Route("AddUser")]
         public async Task<ActionResult<UserInfo>> AddUser(UserInfo request)

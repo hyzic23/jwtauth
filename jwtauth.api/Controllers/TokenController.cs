@@ -71,21 +71,5 @@ namespace jwtauth.api.Controllers
             UserInfo response = _userService.AuthenticateUser(request);
             return response;
         }
-
-        private UserInfo AuthenticateUser_(UserInfo request)
-        {
-            UserInfo response = new UserInfo();
-            if(request.Email == "admin@admin.com" && request.Password == "admin")
-            {
-                response.UserName = "admin@admin.com";
-                response.Email = "admin@admin.com";
-                response.DisplayName = "Administration";
-            }
-            else
-            {
-
-            }
-                return response;
-        }
     }
 }
