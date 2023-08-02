@@ -1,5 +1,8 @@
 using System.Text;
+using FluentValidation;
 using jwtauth.api.Config;
+using jwtauth.api.Dtos;
+using jwtauth.api.Validators;
 using jwtauth.dataaccess.Data;
 using jwtauth.dataaccess.IService;
 using jwtauth.dataaccess.Service;
@@ -11,12 +14,13 @@ using Microsoft.IdentityModel.Tokens;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-//builder.Services.AddDbContext<DatabaseContext>(x => x.UseNpgsql(builder.Configuration.GetConnectionString("dbConnect")));
 builder.Services.Configure<Jwt>(builder.Configuration.GetSection("Jwt"));
 builder.Services.AddDbContext<DatabaseContext>(o => o.UseNpgsql(builder.Configuration.GetConnectionString("dbConnect")));
 builder.Services.AddTransient<IEmployeeService, EmployeeService>();
 builder.Services.AddTransient<IUserInfoService, UserInfoService>();
 //builder.Services.AddTransient<IGenericService, GenericService>();
+builder.Services.AddSingleton<IAppSettings, AppSettings>();
+builder.Services.AddScoped<IValidator<UserInfoDto>, UserInfoDtoValidator>();
 builder.Services.AddControllers();
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
 {

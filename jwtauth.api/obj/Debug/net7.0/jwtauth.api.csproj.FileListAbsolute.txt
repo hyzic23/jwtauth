@@ -60,3 +60,6 @@
 /Users/hyzic/Documents/sandbox/c#/jwtauth/jwtauth.api/obj/Debug/net7.0/jwtauth.api.pdb
 /Users/hyzic/Documents/sandbox/c#/jwtauth/jwtauth.api/obj/Debug/net7.0/jwtauth.api.genruntimeconfig.cache
 /Users/hyzic/Documents/sandbox/c#/jwtauth/jwtauth.api/obj/Debug/net7.0/ref/jwtauth.api.dll
+/Users/hyzic/Documents/sandbox/c#/jwtauth/jwtauth.api/bin/Debug/net7.0/FluentValidation.dll
+/Users/hyzic/Documents/sandbox/c#/jwtauth/jwtauth.api/bin/Debug/net7.0/FluentValidation.AspNetCore.dll
+/Users/hyzic/Documents/sandbox/c#/jwtauth/jwtauth.api/bin/Debug/net7.0/FluentValidation.DependencyInjectionExtensions.dll
