@@ -1,8 +1,11 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
+
 namespace jwtauth.models;
 
 public class UserInfo
 {
+    [Key]
     public int UserId { get; set; }
     public string? DisplayName { get; set;}
     public string? UserName { get; set;}

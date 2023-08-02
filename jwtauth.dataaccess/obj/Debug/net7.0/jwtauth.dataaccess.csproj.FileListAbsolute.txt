@@ -1,0 +1,17 @@
+/Users/hyzic/Documents/sandbox/c#/jwtauth/jwtauth.dataaccess/bin/Debug/net7.0/jwtauth.dataaccess.deps.json
+/Users/hyzic/Documents/sandbox/c#/jwtauth/jwtauth.dataaccess/bin/Debug/net7.0/jwtauth.dataaccess.runtimeconfig.json
+/Users/hyzic/Documents/sandbox/c#/jwtauth/jwtauth.dataaccess/bin/Debug/net7.0/jwtauth.dataaccess.dll
+/Users/hyzic/Documents/sandbox/c#/jwtauth/jwtauth.dataaccess/bin/Debug/net7.0/jwtauth.dataaccess.pdb
+/Users/hyzic/Documents/sandbox/c#/jwtauth/jwtauth.dataaccess/bin/Debug/net7.0/jwtauth.models.dll
+/Users/hyzic/Documents/sandbox/c#/jwtauth/jwtauth.dataaccess/bin/Debug/net7.0/jwtauth.models.pdb
+/Users/hyzic/Documents/sandbox/c#/jwtauth/jwtauth.dataaccess/obj/Debug/net7.0/jwtauth.dataaccess.csproj.AssemblyReference.cache
+/Users/hyzic/Documents/sandbox/c#/jwtauth/jwtauth.dataaccess/obj/Debug/net7.0/jwtauth.dataaccess.GeneratedMSBuildEditorConfig.editorconfig
+/Users/hyzic/Documents/sandbox/c#/jwtauth/jwtauth.dataaccess/obj/Debug/net7.0/jwtauth.dataaccess.AssemblyInfoInputs.cache
+/Users/hyzic/Documents/sandbox/c#/jwtauth/jwtauth.dataaccess/obj/Debug/net7.0/jwtauth.dataaccess.AssemblyInfo.cs
+/Users/hyzic/Documents/sandbox/c#/jwtauth/jwtauth.dataaccess/obj/Debug/net7.0/jwtauth.dataaccess.csproj.CoreCompileInputs.cache
+/Users/hyzic/Documents/sandbox/c#/jwtauth/jwtauth.dataaccess/obj/Debug/net7.0/jwtauth.dataaccess.csproj.CopyComplete
+/Users/hyzic/Documents/sandbox/c#/jwtauth/jwtauth.dataaccess/obj/Debug/net7.0/jwtauth.dataaccess.dll
+/Users/hyzic/Documents/sandbox/c#/jwtauth/jwtauth.dataaccess/obj/Debug/net7.0/refint/jwtauth.dataaccess.dll
+/Users/hyzic/Documents/sandbox/c#/jwtauth/jwtauth.dataaccess/obj/Debug/net7.0/jwtauth.dataaccess.pdb
+/Users/hyzic/Documents/sandbox/c#/jwtauth/jwtauth.dataaccess/obj/Debug/net7.0/jwtauth.dataaccess.genruntimeconfig.cache
+/Users/hyzic/Documents/sandbox/c#/jwtauth/jwtauth.dataaccess/obj/Debug/net7.0/ref/jwtauth.dataaccess.dll

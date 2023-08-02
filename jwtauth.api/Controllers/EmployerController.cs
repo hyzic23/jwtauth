@@ -7,6 +7,9 @@ using System.Net.Http;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
+using jwtauth.dataaccess.IService;
+using jwtauth.models;
+using Microsoft.EntityFrameworkCore;
 
 namespace jwtauth.api.Controllers
 {
@@ -15,16 +18,19 @@ namespace jwtauth.api.Controllers
     [ApiController]
     public class EmployeeController : ControllerBase
     {
-        public EmployeeController()
+        private readonly IEmployeeService _service;
+
+        public EmployeeController(IEmployeeService service)
         {
+            _service = service;
         }
 
         [HttpGet]
         [Route("GetAllEmployees")]
-        public async Task<List<EmployeeInfo>> GetAllEmployees()
+        public async Task<List<Employee>> GetAllEmployees()
         {
-            var employeeInfo = await Task.FromResult(GetEmployeeInfo());
-            return employeeInfo;
+            var employees = await Task.FromResult(_service.GetEmployeeDetails());
+            return employees;
         }
 
         [HttpGet]
@@ -36,26 +42,68 @@ namespace jwtauth.api.Controllers
 
         [HttpGet]
         [Route("GetAllEmployees/{id}")]
-        public async Task<List<EmployeeInfo>> GetAllEmployees(long id)
+        public async Task<ActionResult> GetAllEmployees(int id)
         {
-            var employeeInfo = await Task.FromResult(GetEmployeeInfo().Where(x => x.Id == id).ToList());
-            return employeeInfo;
+            var employee = await Task.FromResult(_service.GetEmployeeDetails(id));
+            if (employee == null)
+            {
+                return NotFound();
+            }  
+            return Ok(employee);
         }
 
         [HttpPost]
         [Route("AddEmployee")]
-        public async Task<ActionResult<EmployeeInfo>> AddEmployee(EmployeeInfo request)
+        public async Task<ActionResult<Employee>> AddEmployee(Employee request)
         {
             if(request != null)
             {
-                List<EmployeeInfo> insertEmployee = new List<EmployeeInfo>();
-                insertEmployee.Add(request);
+                _service.AddEmployee(request);
                 return await Task.FromResult(request);
             }
             else
             {
                 return await Task.FromResult(BadRequest());
             }
+        }
+
+        [HttpPut]
+        [Route("UpdateEmployee/{id}")]
+        public async Task<ActionResult<Employee>> UpdateEmployee(int id, Employee employee)
+        {
+            if (id != employee.EmployeeID)
+            {
+                return BadRequest();
+            }
+            try
+            {
+                _service.UpdateEmployee(employee);
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!EmployeeExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+            return await Task.FromResult(employee);
+        }
+
+        [HttpDelete]
+        [Route("DeleteEmployee/{id}")]
+        public async Task<ActionResult<Employee>> Delete(int id)
+        {
+            var employee = _service.DeleteEmployee(id);
+            return await Task.FromResult(employee);
+        }
+
+        private bool EmployeeExists(int id)
+        {
+            return _service.CheckEmployee(id);
         }
 
 

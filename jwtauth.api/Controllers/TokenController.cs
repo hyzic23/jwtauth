@@ -4,6 +4,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using Microsoft.AspNetCore.Mvc;
 using jwtauth.models;
+using jwtauth.dataaccess.IService;
 
 namespace jwtauth.api.Controllers
 {
@@ -12,10 +13,14 @@ namespace jwtauth.api.Controllers
     public class TokenController : ControllerBase
     {
         private IConfiguration _configuration;
+        private IUserInfoService _userService;
 
-        public TokenController(IConfiguration configuration)
+        public TokenController(IConfiguration configuration,
+                               IUserInfoService userService)
         {
             _configuration = configuration;
+            _userService = userService;
+
         }
 
         [HttpPost]
@@ -62,6 +67,12 @@ namespace jwtauth.api.Controllers
         }
 
         private UserInfo AuthenticateUser(UserInfo request)
+        {
+            UserInfo response = _userService.AuthenticateUser(request);
+            return response;
+        }
+
+        private UserInfo AuthenticateUser_(UserInfo request)
         {
             UserInfo response = new UserInfo();
             if(request.Email == "admin@admin.com" && request.Password == "admin")

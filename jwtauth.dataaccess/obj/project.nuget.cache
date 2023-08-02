@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "K/F7eGoMxb3JxRLpywcyt8wGJ7f1cg+FJX8NKqENpT/7ghP+316YqJAvYvUuYOHoRGy/Vv55bZ0Hy6rrkY8/tA==",
+  "dgSpecHash": "yzYlSgjHZecU/Spm6aykTXpWZT38qLszwelE5IkTTi/RqrRakY/c074EDVI0eVglAIULNBNH3wSVlHdT7LU5gw==",
   "success": true,
   "projectFilePath": "/Users/hyzic/Documents/sandbox/c#/jwtauth/jwtauth.dataaccess/jwtauth.dataaccess.csproj",
   "expectedPackageFiles": [
@@ -21,6 +21,8 @@
     "/Users/hyzic/.nuget/packages/microsoft.extensions.options/7.0.0/microsoft.extensions.options.7.0.0.nupkg.sha512",
     "/Users/hyzic/.nuget/packages/microsoft.extensions.primitives/7.0.0/microsoft.extensions.primitives.7.0.0.nupkg.sha512",
     "/Users/hyzic/.nuget/packages/mono.texttemplating/2.2.1/mono.texttemplating.2.2.1.nupkg.sha512",
+    "/Users/hyzic/.nuget/packages/npgsql/7.0.4/npgsql.7.0.4.nupkg.sha512",
+    "/Users/hyzic/.nuget/packages/npgsql.entityframeworkcore.postgresql/7.0.4/npgsql.entityframeworkcore.postgresql.7.0.4.nupkg.sha512",
     "/Users/hyzic/.nuget/packages/system.codedom/4.4.0/system.codedom.4.4.0.nupkg.sha512",
     "/Users/hyzic/.nuget/packages/system.text.encodings.web/7.0.0/system.text.encodings.web.7.0.0.nupkg.sha512",
     "/Users/hyzic/.nuget/packages/system.text.json/7.0.0/system.text.json.7.0.0.nupkg.sha512"
