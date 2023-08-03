@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 using FluentValidation;
 using jwtauth.api.Dtos;
 
@@ -6,28 +7,29 @@ namespace jwtauth.api.Validators
 {
 	public class UserInfoDtoValidator : AbstractValidator<UserInfoDto>
 	{
-		public UserInfoDtoValidator()
+        [Obsolete]
+        public UserInfoDtoValidator()
 		{
 
-            RuleFor(x => x.UserId).NotNull().WithMessage("UserId cannot be null")
-            					  .GreaterThan(0).WithMessage("UserId must be greater than 0");
+            //RuleFor(x => x.UserId).NotNull().WithMessage("UserId cannot be null")
+            //					  .GreaterThan(0).WithMessage("UserId must be greater than 0");
 
-            RuleFor(x => x.DisplayName).NotNull().WithMessage("Display Name cannot be null")
-                                       .MinimumLength(5).WithMessage("Display Name cannot be less than 5")
-                                       .MaximumLength(50).WithMessage("Display Name cannot be more than 20");
+            //RuleFor(x => x.DisplayName).NotNull().WithMessage("Display Name cannot be null")
+            //                           .MinimumLength(5).WithMessage("Display Name cannot be less than 5")
+            //                           .MaximumLength(50).WithMessage("Display Name cannot be more than 20");
 
-            RuleFor(x => x.UserName).NotNull().WithMessage("Username cannot be null")
-                                    .MinimumLength(5).WithMessage("Username cannot be less than 5")
-                                    .MaximumLength(50).WithMessage("Username cannot be more than 20");
+            //RuleFor(x => x.UserName).NotNull().WithMessage("Username cannot be null")
+            //                        .MinimumLength(5).WithMessage("Username cannot be less than 5")
+            //                        .MaximumLength(50).WithMessage("Username cannot be more than 20");
 
             RuleFor(x => x.Email).NotNull().WithMessage("Email cannot be null")
-                                 .EmailAddress().WithMessage("Enter Valid email");
+                                 .EmailAddress(FluentValidation.Validators.EmailValidationMode.Net4xRegex).WithMessage("Enter Valid email");
 
             RuleFor(x => x.Password).NotNull().WithMessage("Password cannot be null")
                                     .MinimumLength(5).WithMessage("Password cannot be less than 5")
                                     .MaximumLength(20).WithMessage("Password cannot be more than 20");
-                
 
+            //RuleFor(x => x.Age).Must(ValidateAge).WithMessage("Age must be 18 or Greater");
 
 
             //RuleSet("all", () =>
@@ -67,6 +69,23 @@ namespace jwtauth.api.Validators
             //                                   .MinimumLength(5).WithMessage("Password cannot be less than 5")
             //                                   .MaximumLength(20).WithMessage("Password cannot be more than 20");
             //         });
+        }
+
+        //Custom Validators
+        public bool ValidateUsingRegex(string emailAddress)
+        {
+            var pattern = @"^[a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$";
+            var regex = new Regex(pattern);
+            return regex.IsMatch(emailAddress);
+        }
+
+        private bool ValidateAge(DateTime age)
+        {
+            DateTime currentDate = DateTime.Today;
+            int ageNow = currentDate.Year - Convert.ToDateTime(age).Year;
+            if (ageNow < 18)
+                return false;
+            return true;
         }
 
         //     private bool CheckId(int? id)

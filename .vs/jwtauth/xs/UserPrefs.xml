@@ -2,15 +2,20 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="jwtauth.api/Program.cs">
     <Files>
-      <File FileName="jwtauth.api/Program.cs" Line="12" Column="60" />
-      <File FileName="jwtauth.dataaccess/Data/DatabaseContext.cs" Line="7" Column="20" />
-      <File FileName="jwtauth.dataaccess/IService/IEmployeeService.cs" Line="1" Column="1" />
-      <File FileName="jwtauth.dataaccess/Service/EmployeeService.cs" Line="24" Column="68" />
+      <File FileName="jwtauth.api/Dtos/UserInfoDto.cs" />
+      <File FileName="jwtauth.api/Validators/UserInfoDtoValidator.cs" Line="74" Column="28" />
+      <File FileName="jwtauth.api/Program.cs" Line="41" Column="22" />
+      <File FileName="jwtauth.api/Controllers/TokenController.cs" Line="56" Column="81" />
+      <File FileName="jwtauth.api/Controllers/EmployerController.cs" />
+      <File FileName="jwtauth.models/Employee.cs" Line="7" Column="66" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="jwtauth" expanded="True">
+            <Node name="jwtauth.api">
+              <Node name="Program.cs" selected="True" />
+            </Node>
             <Node name="jwtauth.dataaccess" expanded="True">
               <Node name="Data" expanded="True" />
               <Node name="IService" expanded="True" />
@@ -24,5 +29,7 @@
   <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.ItemProperties.jwtauth.api PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
 </Properties>

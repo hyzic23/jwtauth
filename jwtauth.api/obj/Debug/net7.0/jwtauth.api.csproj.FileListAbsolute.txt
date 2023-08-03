@@ -5,6 +5,11 @@
 /Users/hyzic/Documents/sandbox/c#/jwtauth/jwtauth.api/bin/Debug/net7.0/jwtauth.api.runtimeconfig.json
 /Users/hyzic/Documents/sandbox/c#/jwtauth/jwtauth.api/bin/Debug/net7.0/jwtauth.api.dll
 /Users/hyzic/Documents/sandbox/c#/jwtauth/jwtauth.api/bin/Debug/net7.0/jwtauth.api.pdb
+/Users/hyzic/Documents/sandbox/c#/jwtauth/jwtauth.api/bin/Debug/net7.0/AutoMapper.dll
+/Users/hyzic/Documents/sandbox/c#/jwtauth/jwtauth.api/bin/Debug/net7.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+/Users/hyzic/Documents/sandbox/c#/jwtauth/jwtauth.api/bin/Debug/net7.0/FluentValidation.dll
+/Users/hyzic/Documents/sandbox/c#/jwtauth/jwtauth.api/bin/Debug/net7.0/FluentValidation.AspNetCore.dll
+/Users/hyzic/Documents/sandbox/c#/jwtauth/jwtauth.api/bin/Debug/net7.0/FluentValidation.DependencyInjectionExtensions.dll
 /Users/hyzic/Documents/sandbox/c#/jwtauth/jwtauth.api/bin/Debug/net7.0/Humanizer.dll
 /Users/hyzic/Documents/sandbox/c#/jwtauth/jwtauth.api/bin/Debug/net7.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
 /Users/hyzic/Documents/sandbox/c#/jwtauth/jwtauth.api/bin/Debug/net7.0/Microsoft.AspNetCore.Authorization.dll
@@ -60,6 +65,3 @@
 /Users/hyzic/Documents/sandbox/c#/jwtauth/jwtauth.api/obj/Debug/net7.0/jwtauth.api.pdb
 /Users/hyzic/Documents/sandbox/c#/jwtauth/jwtauth.api/obj/Debug/net7.0/jwtauth.api.genruntimeconfig.cache
 /Users/hyzic/Documents/sandbox/c#/jwtauth/jwtauth.api/obj/Debug/net7.0/ref/jwtauth.api.dll
-/Users/hyzic/Documents/sandbox/c#/jwtauth/jwtauth.api/bin/Debug/net7.0/FluentValidation.dll
-/Users/hyzic/Documents/sandbox/c#/jwtauth/jwtauth.api/bin/Debug/net7.0/FluentValidation.AspNetCore.dll
-/Users/hyzic/Documents/sandbox/c#/jwtauth/jwtauth.api/bin/Debug/net7.0/FluentValidation.DependencyInjectionExtensions.dll

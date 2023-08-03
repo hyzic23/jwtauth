@@ -1,6 +1,5 @@
 using System.Text;
 using System.Security.Claims;
-using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using Microsoft.AspNetCore.Mvc;
 using jwtauth.models;
@@ -9,6 +8,9 @@ using jwtauth.api.Config;
 using Microsoft.Extensions.Options;
 using FluentValidation;
 using jwtauth.api.Dtos;
+using Microsoft.IdentityModel.Tokens;
+using ValidationFailure = FluentValidation.Results.ValidationFailure;
+using AutoMapper;
 
 namespace jwtauth.api.Controllers
 {
@@ -21,18 +23,21 @@ namespace jwtauth.api.Controllers
         private IUserInfoService _userService;
         private IAppSettings _appSettings;
         private readonly IValidator<UserInfoDto> _validator;
+        private readonly IMapper _mapper;
 
         public TokenController(IConfiguration configuration,
                                IUserInfoService userService,
                                IOptions<Jwt> jwtSettings,
                                IAppSettings appSettings,
-                               IValidator<UserInfoDto> validator)
+                               IValidator<UserInfoDto> validator,
+                               IMapper mapper)
         {
             _configuration = configuration;
             _userService = userService;
             _jwtSettings = jwtSettings;
             _appSettings = appSettings;
             _validator = validator;
+            _mapper = mapper;
         }
 
         [HttpPost]
@@ -41,20 +46,30 @@ namespace jwtauth.api.Controllers
         {
             var result = await Task.FromResult(_validator.Validate(userInfoDto));
             if (!result.IsValid)
-                return BadRequest(result);
+            {
+                foreach (ValidationFailure error in result.Errors)
+                {
+                    ModelState.AddModelError(error.PropertyName, error.ErrorMessage);
+                }
+                return StatusCode(StatusCodes.Status400BadRequest, ModelState);
+                    //return BadRequest(ModelState);
+                //return BadRequest(result);
+            }
+               
 
             if (userInfoDto != null && userInfoDto.Email != null && userInfoDto.Password != null)
             {
-                UserInfo userInfo = new UserInfo
-                {
-                        UserId = userInfoDto.UserId,
-                        UserName = userInfoDto.UserName,
-                        DisplayName = userInfoDto.DisplayName,
-                        Email = userInfoDto.Email,
-                        Password = userInfoDto.Password
-                };
+                //UserInfo userInfo = new UserInfo
+                //{
+                //        UserId = userInfoDto.UserId,
+                //        UserName = userInfoDto.UserName,
+                //        DisplayName = userInfoDto.DisplayName,
+                //        Email = userInfoDto.Email,
+                //        Password = userInfoDto.Password
+                //};
+                var userInfo = _mapper.Map<UserInfo>(userInfoDto);
                 var user = AuthenticateUser(userInfo);
-                if (userInfo != null)
+                if (user != null)
                 {
                     //create claims details based on the user information
                     var claims = new[]{

@@ -4,7 +4,7 @@ namespace jwtauth.models
     {
         public int EmployeeID { get; set; }
         public string? NationalIDNumber { get; set; }
-        public string? EmployeeName { get; set; }
+        public string? EmployeeName { get; set; } = string.Empty;
         public string? LoginID { get; set; }
         public string? JobTitle { get; set; }
         public DateTime BirthDate { get; set; }
