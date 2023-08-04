@@ -25,13 +25,15 @@ namespace jwtauth.api.Controllers
         private IAppSettings _appSettings;
         private readonly IValidator<UserInfoDto> _validator;
         private readonly IMapper _mapper;
+        private readonly ILogger<TokenController> _logger;
 
         public TokenController(IConfiguration configuration,
                                IUserInfoService userService,
                                IOptions<Jwt> jwtSettings,
                                IAppSettings appSettings,
                                IValidator<UserInfoDto> validator,
-                               IMapper mapper)
+                               IMapper mapper,
+                               ILogger<TokenController> logger)
         {
             _configuration = configuration;
             _userService = userService;
@@ -39,12 +41,14 @@ namespace jwtauth.api.Controllers
             _appSettings = appSettings;
             _validator = validator;
             _mapper = mapper;
+            _logger = logger;
         }
 
         [HttpPost]
         [Route("generatetoken")]
         public async Task<IActionResult> Post([FromBody] UserInfoDto userInfoDto)
         {
+            _logger.LogInformation("Called API to Generate Token");
             var result = await Task.FromResult(_validator.Validate(userInfoDto));
             if (!result.IsValid)
             {

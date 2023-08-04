@@ -1,25 +1,16 @@
 ﻿<Properties StartupConfiguration="{CD260185-A12A-4AF2-8B4B-FFDC8AA60E51}|https">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="jwtauth.api/Program.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="jwtauth.api/Config/BenchMarks.cs">
     <Files>
-      <File FileName="jwtauth.api/Dtos/UserInfoDto.cs" />
-      <File FileName="jwtauth.api/Validators/UserInfoDtoValidator.cs" Line="74" Column="28" />
-      <File FileName="jwtauth.api/Program.cs" Line="41" Column="22" />
-      <File FileName="jwtauth.api/Controllers/TokenController.cs" Line="56" Column="81" />
-      <File FileName="jwtauth.api/Controllers/EmployerController.cs" />
-      <File FileName="jwtauth.models/Employee.cs" Line="7" Column="66" />
+      <File FileName="jwtauth.api/Controllers/TokenController.cs" Line="58" Column="1" />
+      <File FileName="jwtauth.api/Config/BenchMarks.cs" Line="18" Column="29" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="jwtauth" expanded="True">
             <Node name="jwtauth.api">
-              <Node name="Program.cs" selected="True" />
-            </Node>
-            <Node name="jwtauth.dataaccess" expanded="True">
-              <Node name="Data" expanded="True" />
-              <Node name="IService" expanded="True" />
-              <Node name="Service" expanded="True" />
+              <Node name="Config" expanded="True" />
             </Node>
           </Node>
         </State>
