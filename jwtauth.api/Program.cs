@@ -12,12 +12,15 @@ using Microsoft.IdentityModel.Tokens;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
+Microsoft.Extensions.Configuration.ConfigurationManager configuration = builder.Configuration;
 
 // Add services to the container.
 builder.Services.Configure<Jwt>(builder.Configuration.GetSection("Jwt"));
 builder.Services.AddDbContext<DatabaseContext>(o => o.UseNpgsql(builder.Configuration.GetConnectionString("dbConnect")));
+builder.Services.AddStackExchangeRedisCache(o => { o.Configuration = configuration["RedisCacheUrl"]; });
 builder.Services.AddTransient<IEmployeeService, EmployeeService>();
 builder.Services.AddTransient<IUserInfoService, UserInfoService>();
+//builder.Services.AddTransient<ICacheService, CacheService>();
 //builder.Services.AddTransient<IGenericService, GenericService>();
 builder.Services.AddSingleton<IAppSettings, AppSettings>();
 builder.Services.AddScoped<IValidator<UserInfoDto>, UserInfoDtoValidator>();
@@ -39,6 +42,12 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddAutoMapper(typeof(Program).Assembly);
+
+//Registering Redis
+builder.Services.AddStackExchangeRedisCache(config =>
+{
+    config.Configuration = "127.0.0.1:6379";
+});
 
 //Configuring logging
 var logger = new LoggerConfiguration()

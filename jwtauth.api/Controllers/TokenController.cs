@@ -12,6 +12,7 @@ using Microsoft.IdentityModel.Tokens;
 using ValidationFailure = FluentValidation.Results.ValidationFailure;
 using AutoMapper;
 using jwtauth.models.Response;
+using Microsoft.Extensions.Caching.Distributed;
 
 namespace jwtauth.api.Controllers
 {
@@ -26,6 +27,7 @@ namespace jwtauth.api.Controllers
         private readonly IValidator<UserInfoDto> _validator;
         private readonly IMapper _mapper;
         private readonly ILogger<TokenController> _logger;
+        private readonly IDistributedCache _cache;
 
         public TokenController(IConfiguration configuration,
                                IUserInfoService userService,
@@ -33,7 +35,8 @@ namespace jwtauth.api.Controllers
                                IAppSettings appSettings,
                                IValidator<UserInfoDto> validator,
                                IMapper mapper,
-                               ILogger<TokenController> logger)
+                               ILogger<TokenController> logger,
+                               IDistributedCache cache)
         {
             _configuration = configuration;
             _userService = userService;
@@ -42,6 +45,7 @@ namespace jwtauth.api.Controllers
             _validator = validator;
             _mapper = mapper;
             _logger = logger;
+            _cache = cache;
         }
 
         [HttpPost]

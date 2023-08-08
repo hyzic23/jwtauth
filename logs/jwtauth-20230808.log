@@ -1,0 +1,50 @@
+2023-08-08 16:53:19.936 -04:00  INF  User profile is available. Using '/Users/hyzic/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.  
+2023-08-08 16:53:20.067 -04:00  INF  Now listening on: http://localhost:5019  
+2023-08-08 16:53:20.069 -04:00  INF  Application started. Press Ctrl+C to shut down.  
+2023-08-08 16:53:20.069 -04:00  INF  Hosting environment: Development  
+2023-08-08 16:53:20.069 -04:00  INF  Content root path: /Users/hyzic/Documents/sandbox/c#/jwtauth/jwtauth.api  
+2023-08-08 16:54:29.339 -04:00  INF  Application is shutting down...  
+2023-08-08 16:54:59.151 -04:00  INF  User profile is available. Using '/Users/hyzic/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.  
+2023-08-08 16:54:59.259 -04:00  INF  Now listening on: http://localhost:5019  
+2023-08-08 16:54:59.260 -04:00  INF  Application started. Press Ctrl+C to shut down.  
+2023-08-08 16:54:59.260 -04:00  INF  Hosting environment: Development  
+2023-08-08 16:54:59.261 -04:00  INF  Content root path: /Users/hyzic/Documents/sandbox/c#/jwtauth/jwtauth.api  
+2023-08-08 16:59:58.764 -04:00  INF  Application is shutting down...  
+2023-08-08 17:02:20.624 -04:00  INF  User profile is available. Using '/Users/hyzic/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.  
+2023-08-08 17:02:21.593 -04:00  INF  Now listening on: https://localhost:7011  
+2023-08-08 17:02:21.594 -04:00  INF  Now listening on: http://localhost:5019  
+2023-08-08 17:02:21.596 -04:00  INF  Application started. Press Ctrl+C to shut down.  
+2023-08-08 17:02:21.596 -04:00  INF  Hosting environment: Development  
+2023-08-08 17:02:21.596 -04:00  INF  Content root path: /Users/hyzic/Documents/sandbox/c#/jwtauth/jwtauth.api  
+2023-08-08 17:02:23.823 -04:00  INF  Request starting HTTP/1.1 GET https://localhost:7011/swagger - -  
+2023-08-08 17:02:24.000 -04:00  INF  Request finished HTTP/1.1 GET https://localhost:7011/swagger - - - 301 0 - 183.7822ms  
+2023-08-08 17:02:24.009 -04:00  INF  Request starting HTTP/1.1 GET https://localhost:7011/swagger/index.html - -  
+2023-08-08 17:02:24.120 -04:00  INF  Request finished HTTP/1.1 GET https://localhost:7011/swagger/index.html - - - 200 - text/html;charset=utf-8 110.1913ms  
+2023-08-08 17:02:24.241 -04:00  INF  Request starting HTTP/1.1 GET https://localhost:7011/swagger/swagger-ui.css - -  
+2023-08-08 17:02:24.250 -04:00  INF  Request starting HTTP/1.1 GET https://localhost:7011/swagger/swagger-ui-bundle.js - -  
+2023-08-08 17:02:24.307 -04:00  INF  Request starting HTTP/1.1 GET https://localhost:7011/swagger/swagger-ui-standalone-preset.js - -  
+2023-08-08 17:02:24.333 -04:00  INF  Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'  
+2023-08-08 17:02:24.333 -04:00  INF  Request finished HTTP/1.1 GET https://localhost:7011/swagger/swagger-ui.css - - - 200 144929 text/css 92.4151ms  
+2023-08-08 17:02:24.383 -04:00  INF  Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'  
+2023-08-08 17:02:24.384 -04:00  INF  Request finished HTTP/1.1 GET https://localhost:7011/swagger/swagger-ui-standalone-preset.js - - - 200 312163 text/javascript 76.6479ms  
+2023-08-08 17:02:24.427 -04:00  INF  Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'  
+2023-08-08 17:02:24.430 -04:00  INF  Request finished HTTP/1.1 GET https://localhost:7011/swagger/swagger-ui-bundle.js - - - 200 1061536 text/javascript 186.4096ms  
+2023-08-08 17:02:24.677 -04:00  INF  Request starting HTTP/1.1 GET https://localhost:7011/swagger/v1/swagger.json - -  
+2023-08-08 17:02:25.123 -04:00  INF  Request finished HTTP/1.1 GET https://localhost:7011/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 446.6394ms  
+2023-08-08 17:03:28.077 -04:00  INF  Request starting HTTP/1.1 GET https://localhost:7011/api/user/GetAllUsers - -  
+2023-08-08 17:03:28.136 -04:00  INF  Executing endpoint 'jwtauth.api.Controllers.UserInfoController.GetAllUsers (jwtauth.api)'  
+2023-08-08 17:03:28.174 -04:00  INF  Route matched with {action = "GetAllUsers", controller = "UserInfo"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[jwtauth.models.UserInfo]]] GetAllUsers() on controller jwtauth.api.Controllers.UserInfoController (jwtauth.api).  
+2023-08-08 17:03:49.412 -04:00  INF  Executed DbCommand (23ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT u."UserId", u."CreatedDate", u."DisplayName", u."Email", u."Password", u."UserName"
+FROM "UserInfo" AS u  
+2023-08-08 17:03:53.813 -04:00  INF  Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[jwtauth.models.UserInfo, jwtauth.models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.  
+2023-08-08 17:03:53.839 -04:00  INF  Executed action jwtauth.api.Controllers.UserInfoController.GetAllUsers (jwtauth.api) in 25658.5881ms  
+2023-08-08 17:03:53.841 -04:00  INF  Executed endpoint 'jwtauth.api.Controllers.UserInfoController.GetAllUsers (jwtauth.api)'  
+2023-08-08 17:03:53.861 -04:00  INF  Request finished HTTP/1.1 GET https://localhost:7011/api/user/GetAllUsers - - - 200 - application/json;+charset=utf-8 25784.4059ms  
+2023-08-08 17:04:18.295 -04:00  INF  Request starting HTTP/1.1 GET https://localhost:7011/api/user/GetAllUsers - -  
+2023-08-08 17:04:18.312 -04:00  INF  Executing endpoint 'jwtauth.api.Controllers.UserInfoController.GetAllUsers (jwtauth.api)'  
+2023-08-08 17:04:18.313 -04:00  INF  Route matched with {action = "GetAllUsers", controller = "UserInfo"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[jwtauth.models.UserInfo]]] GetAllUsers() on controller jwtauth.api.Controllers.UserInfoController (jwtauth.api).  
+2023-08-08 17:04:47.297 -04:00  INF  Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[jwtauth.models.UserInfo, jwtauth.models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.  
+2023-08-08 17:04:47.298 -04:00  INF  Executed action jwtauth.api.Controllers.UserInfoController.GetAllUsers (jwtauth.api) in 28984.738ms  
+2023-08-08 17:04:47.298 -04:00  INF  Executed endpoint 'jwtauth.api.Controllers.UserInfoController.GetAllUsers (jwtauth.api)'  
+2023-08-08 17:04:47.298 -04:00  INF  Request finished HTTP/1.1 GET https://localhost:7011/api/user/GetAllUsers - - - 200 - application/json;+charset=utf-8 29002.8555ms  
