@@ -6,22 +6,26 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Distributed;
 using System.Text;
 using Newtonsoft.Json;
+using jwtauth.api.Config;
 
 namespace jwtauth.api.Controllers
 {
-    //[Authorize]
+    [Authorize]
     [Route("api/user/")]
     [ApiController]
     public class UserInfoController : ControllerBase
     {
         private readonly IUserInfoService _service;
         private readonly IDistributedCache _cache;
+        private readonly IConfiguration _configuration;
 
         public UserInfoController(IUserInfoService service,
-                                  IDistributedCache cache)
+                                  IDistributedCache cache,
+                                  IConfiguration configuration)
         {
             _service = service;
             _cache = cache;
+            _configuration = configuration;
         }
 
 
@@ -31,7 +35,7 @@ namespace jwtauth.api.Controllers
         {
             var cacheKey = "GET_ALL_USERS";
             var users = new List<UserInfo>();
-
+          
             //Get data from cache
             var cacheData = await _cache.GetAsync(cacheKey);
             if (cacheData != null)
@@ -51,7 +55,7 @@ namespace jwtauth.api.Controllers
 
                 //set cache options
                 var options = new DistributedCacheEntryOptions()
-                    .SetAbsoluteExpiration(DateTime.Now.AddMinutes(2))
+                    .SetAbsoluteExpiration(DateTime.Now.AddMinutes(int.Parse(_configuration["Redis:ExpirationTime"])))
                     .SetSlidingExpiration(TimeSpan.FromMinutes(1));
 
                 //Add data in cache

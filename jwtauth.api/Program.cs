@@ -16,8 +16,9 @@ Microsoft.Extensions.Configuration.ConfigurationManager configuration = builder.
 
 // Add services to the container.
 builder.Services.Configure<Jwt>(builder.Configuration.GetSection("Jwt"));
+builder.Services.Configure<Redis>(builder.Configuration.GetSection("Redis"));
 builder.Services.AddDbContext<DatabaseContext>(o => o.UseNpgsql(builder.Configuration.GetConnectionString("dbConnect")));
-builder.Services.AddStackExchangeRedisCache(o => { o.Configuration = configuration["RedisCacheUrl"]; });
+builder.Services.AddStackExchangeRedisCache(o => { o.Configuration = configuration["Redis:RedisCacheUrl"]; });
 builder.Services.AddTransient<IEmployeeService, EmployeeService>();
 builder.Services.AddTransient<IUserInfoService, UserInfoService>();
 //builder.Services.AddTransient<ICacheService, CacheService>();
@@ -46,7 +47,7 @@ builder.Services.AddAutoMapper(typeof(Program).Assembly);
 //Registering Redis
 builder.Services.AddStackExchangeRedisCache(config =>
 {
-    config.Configuration = "127.0.0.1:6379";
+    config.Configuration = builder.Configuration["Redis:RedisCacheUrl"];
 });
 
 //Configuring logging

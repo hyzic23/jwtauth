@@ -48,3 +48,166 @@ FROM "UserInfo" AS u
 2023-08-08 17:04:47.298 -04:00  INF  Executed action jwtauth.api.Controllers.UserInfoController.GetAllUsers (jwtauth.api) in 28984.738ms  
 2023-08-08 17:04:47.298 -04:00  INF  Executed endpoint 'jwtauth.api.Controllers.UserInfoController.GetAllUsers (jwtauth.api)'  
 2023-08-08 17:04:47.298 -04:00  INF  Request finished HTTP/1.1 GET https://localhost:7011/api/user/GetAllUsers - - - 200 - application/json;+charset=utf-8 29002.8555ms  
+2023-08-08 21:01:40.162 -04:00  INF  User profile is available. Using '/Users/hyzic/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.  
+2023-08-08 21:01:42.959 -04:00  INF  Now listening on: https://localhost:7011  
+2023-08-08 21:01:43.082 -04:00  INF  Now listening on: http://localhost:5019  
+2023-08-08 21:01:43.110 -04:00  INF  Application started. Press Ctrl+C to shut down.  
+2023-08-08 21:01:43.110 -04:00  INF  Hosting environment: Development  
+2023-08-08 21:01:43.110 -04:00  INF  Content root path: /Users/hyzic/Documents/sandbox/c#/jwtauth/jwtauth.api  
+2023-08-08 21:01:47.748 -04:00  INF  Request starting HTTP/1.1 GET https://localhost:7011/swagger/index.html - -  
+2023-08-08 21:01:48.837 -04:00  INF  Request finished HTTP/1.1 GET https://localhost:7011/swagger/index.html - - - 200 - text/html;charset=utf-8 1140.0025ms  
+2023-08-08 21:01:50.865 -04:00  INF  Request starting HTTP/1.1 GET https://localhost:7011/swagger/v1/swagger.json - -  
+2023-08-08 21:01:51.647 -04:00  INF  Request finished HTTP/1.1 GET https://localhost:7011/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 782.4732ms  
+2023-08-08 21:02:37.980 -04:00  INF  Request starting HTTP/1.1 GET https://localhost:7011/api/user/GetAllUsers - -  
+2023-08-08 21:02:38.117 -04:00  INF  Executing endpoint 'jwtauth.api.Controllers.UserInfoController.GetAllUsers (jwtauth.api)'  
+2023-08-08 21:02:38.222 -04:00  INF  Route matched with {action = "GetAllUsers", controller = "UserInfo"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[jwtauth.models.UserInfo]]] GetAllUsers() on controller jwtauth.api.Controllers.UserInfoController (jwtauth.api).  
+2023-08-08 21:02:52.297 -04:00  INF  Executed DbCommand (25ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT u."UserId", u."CreatedDate", u."DisplayName", u."Email", u."Password", u."UserName"
+FROM "UserInfo" AS u  
+2023-08-08 21:03:04.490 -04:00  INF  Executed action jwtauth.api.Controllers.UserInfoController.GetAllUsers (jwtauth.api) in 26260.4894ms  
+2023-08-08 21:03:04.493 -04:00  INF  Executed endpoint 'jwtauth.api.Controllers.UserInfoController.GetAllUsers (jwtauth.api)'  
+2023-08-08 21:03:04.505 -04:00  ERR  An unhandled exception has occurred while executing the request. System.ArgumentOutOfRangeException: The absolute expiration value must be in the future. (Parameter 'AbsoluteExpiration')
+Actual value was 8/8/2023 9:02:55 PM -04:00.
+   at Microsoft.Extensions.Caching.StackExchangeRedis.RedisCache.GetAbsoluteExpiration(DateTimeOffset creationTime, DistributedCacheEntryOptions options)
+   at Microsoft.Extensions.Caching.StackExchangeRedis.RedisCache.SetAsync(String key, Byte[] value, DistributedCacheEntryOptions options, CancellationToken token)
+   at jwtauth.api.Controllers.UserInfoController.GetAllUsers() in /Users/hyzic/Documents/sandbox/c#/jwtauth/jwtauth.api/Controllers/UserInfoController.cs:line 60
+   at lambda_method5(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+ 
+2023-08-08 21:03:04.593 -04:00  INF  Request finished HTTP/1.1 GET https://localhost:7011/api/user/GetAllUsers - - - 500 - text/plain;+charset=utf-8 26614.7825ms  
+2023-08-08 21:05:00.969 -04:00  INF  User profile is available. Using '/Users/hyzic/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.  
+2023-08-08 21:05:01.828 -04:00  INF  Now listening on: https://localhost:7011  
+2023-08-08 21:05:01.828 -04:00  INF  Now listening on: http://localhost:5019  
+2023-08-08 21:05:01.830 -04:00  INF  Application started. Press Ctrl+C to shut down.  
+2023-08-08 21:05:01.831 -04:00  INF  Hosting environment: Development  
+2023-08-08 21:05:01.831 -04:00  INF  Content root path: /Users/hyzic/Documents/sandbox/c#/jwtauth/jwtauth.api  
+2023-08-08 21:05:03.595 -04:00  INF  Request starting HTTP/1.1 GET https://localhost:7011/swagger/index.html - -  
+2023-08-08 21:05:03.902 -04:00  INF  Request finished HTTP/1.1 GET https://localhost:7011/swagger/index.html - - - 200 - text/html;charset=utf-8 309.2228ms  
+2023-08-08 21:05:04.119 -04:00  INF  Request starting HTTP/1.1 GET https://localhost:7011/swagger/v1/swagger.json - -  
+2023-08-08 21:05:04.293 -04:00  INF  Request finished HTTP/1.1 GET https://localhost:7011/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 174.1934ms  
+2023-08-08 21:05:19.913 -04:00  INF  Request starting HTTP/1.1 GET https://localhost:7011/api/user/GetAllUsers - -  
+2023-08-08 21:05:19.949 -04:00  INF  Executing endpoint 'jwtauth.api.Controllers.UserInfoController.GetAllUsers (jwtauth.api)'  
+2023-08-08 21:05:19.974 -04:00  INF  Route matched with {action = "GetAllUsers", controller = "UserInfo"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[jwtauth.models.UserInfo]]] GetAllUsers() on controller jwtauth.api.Controllers.UserInfoController (jwtauth.api).  
+2023-08-08 21:06:17.709 -04:00  INF  Executed DbCommand (23ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT u."UserId", u."CreatedDate", u."DisplayName", u."Email", u."Password", u."UserName"
+FROM "UserInfo" AS u  
+2023-08-08 21:06:19.971 -04:00  INF  Executed action jwtauth.api.Controllers.UserInfoController.GetAllUsers (jwtauth.api) in 59993.1356ms  
+2023-08-08 21:06:19.972 -04:00  INF  Executed endpoint 'jwtauth.api.Controllers.UserInfoController.GetAllUsers (jwtauth.api)'  
+2023-08-08 21:06:19.976 -04:00  ERR  An unhandled exception has occurred while executing the request. System.ArgumentOutOfRangeException: The absolute expiration value must be in the future. (Parameter 'AbsoluteExpiration')
+Actual value was 8/8/2023 9:06:19 PM -04:00.
+   at Microsoft.Extensions.Caching.StackExchangeRedis.RedisCache.GetAbsoluteExpiration(DateTimeOffset creationTime, DistributedCacheEntryOptions options)
+   at Microsoft.Extensions.Caching.StackExchangeRedis.RedisCache.SetAsync(String key, Byte[] value, DistributedCacheEntryOptions options, CancellationToken token)
+   at jwtauth.api.Controllers.UserInfoController.GetAllUsers() in /Users/hyzic/Documents/sandbox/c#/jwtauth/jwtauth.api/Controllers/UserInfoController.cs:line 62
+   at lambda_method5(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+ 
+2023-08-08 21:06:20.015 -04:00  INF  Request finished HTTP/1.1 GET https://localhost:7011/api/user/GetAllUsers - - - 500 - text/plain;+charset=utf-8 60101.7862ms  
+2023-08-08 21:09:55.144 -04:00  INF  User profile is available. Using '/Users/hyzic/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.  
+2023-08-08 21:10:08.162 -04:00  INF  User profile is available. Using '/Users/hyzic/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.  
+2023-08-08 21:10:09.262 -04:00  INF  Now listening on: https://localhost:7011  
+2023-08-08 21:10:09.263 -04:00  INF  Now listening on: http://localhost:5019  
+2023-08-08 21:10:09.265 -04:00  INF  Application started. Press Ctrl+C to shut down.  
+2023-08-08 21:10:09.265 -04:00  INF  Hosting environment: Development  
+2023-08-08 21:10:09.265 -04:00  INF  Content root path: /Users/hyzic/Documents/sandbox/c#/jwtauth/jwtauth.api  
+2023-08-08 21:10:10.719 -04:00  INF  Request starting HTTP/1.1 GET https://localhost:7011/swagger/index.html - -  
+2023-08-08 21:10:11.091 -04:00  INF  Request finished HTTP/1.1 GET https://localhost:7011/swagger/index.html - - - 200 - text/html;charset=utf-8 374.5579ms  
+2023-08-08 21:10:11.368 -04:00  INF  Request starting HTTP/1.1 GET https://localhost:7011/swagger/v1/swagger.json - -  
+2023-08-08 21:10:11.731 -04:00  INF  Request finished HTTP/1.1 GET https://localhost:7011/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 362.9474ms  
+2023-08-08 21:10:41.432 -04:00  INF  Request starting HTTP/1.1 GET https://localhost:7011/api/user/GetAllUsers - -  
+2023-08-08 21:10:41.473 -04:00  INF  Executing endpoint 'jwtauth.api.Controllers.UserInfoController.GetAllUsers (jwtauth.api)'  
+2023-08-08 21:10:41.494 -04:00  INF  Route matched with {action = "GetAllUsers", controller = "UserInfo"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[jwtauth.models.UserInfo]]] GetAllUsers() on controller jwtauth.api.Controllers.UserInfoController (jwtauth.api).  
+2023-08-08 21:13:17.769 -04:00  INF  User profile is available. Using '/Users/hyzic/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.  
+2023-08-08 21:13:18.620 -04:00  INF  Now listening on: https://localhost:7011  
+2023-08-08 21:13:18.621 -04:00  INF  Now listening on: http://localhost:5019  
+2023-08-08 21:13:18.623 -04:00  INF  Application started. Press Ctrl+C to shut down.  
+2023-08-08 21:13:18.623 -04:00  INF  Hosting environment: Development  
+2023-08-08 21:13:18.623 -04:00  INF  Content root path: /Users/hyzic/Documents/sandbox/c#/jwtauth/jwtauth.api  
+2023-08-08 21:13:20.516 -04:00  INF  Request starting HTTP/1.1 GET https://localhost:7011/swagger/index.html - -  
+2023-08-08 21:13:20.873 -04:00  INF  Request finished HTTP/1.1 GET https://localhost:7011/swagger/index.html - - - 200 - text/html;charset=utf-8 358.7063ms  
+2023-08-08 21:13:21.204 -04:00  INF  Request starting HTTP/1.1 GET https://localhost:7011/swagger/v1/swagger.json - -  
+2023-08-08 21:13:21.483 -04:00  INF  Request finished HTTP/1.1 GET https://localhost:7011/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 279.1184ms  
+2023-08-08 21:13:44.351 -04:00  INF  Request starting HTTP/1.1 GET https://localhost:7011/api/user/GetAllUsers - -  
+2023-08-08 21:13:44.424 -04:00  INF  Executing endpoint 'jwtauth.api.Controllers.UserInfoController.GetAllUsers (jwtauth.api)'  
+2023-08-08 21:13:44.470 -04:00  INF  Route matched with {action = "GetAllUsers", controller = "UserInfo"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[jwtauth.models.UserInfo]]] GetAllUsers() on controller jwtauth.api.Controllers.UserInfoController (jwtauth.api).  
+2023-08-08 21:14:37.244 -04:00  INF  User profile is available. Using '/Users/hyzic/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.  
+2023-08-08 21:14:38.011 -04:00  INF  Now listening on: https://localhost:7011  
+2023-08-08 21:14:38.011 -04:00  INF  Now listening on: http://localhost:5019  
+2023-08-08 21:14:38.013 -04:00  INF  Application started. Press Ctrl+C to shut down.  
+2023-08-08 21:14:38.013 -04:00  INF  Hosting environment: Development  
+2023-08-08 21:14:38.013 -04:00  INF  Content root path: /Users/hyzic/Documents/sandbox/c#/jwtauth/jwtauth.api  
+2023-08-08 21:14:39.710 -04:00  INF  Request starting HTTP/1.1 GET https://localhost:7011/swagger/index.html - -  
+2023-08-08 21:14:39.998 -04:00  INF  Request finished HTTP/1.1 GET https://localhost:7011/swagger/index.html - - - 200 - text/html;charset=utf-8 290.9585ms  
+2023-08-08 21:14:40.287 -04:00  INF  Request starting HTTP/1.1 GET https://localhost:7011/swagger/v1/swagger.json - -  
+2023-08-08 21:14:40.513 -04:00  INF  Request finished HTTP/1.1 GET https://localhost:7011/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 226.0290ms  
+2023-08-08 21:17:14.560 -04:00  INF  Request starting HTTP/1.1 GET https://localhost:7011/api/user/GetAllUsers - -  
+2023-08-08 21:17:14.581 -04:00  INF  Executing endpoint 'jwtauth.api.Controllers.UserInfoController.GetAllUsers (jwtauth.api)'  
+2023-08-08 21:17:14.614 -04:00  INF  Route matched with {action = "GetAllUsers", controller = "UserInfo"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[jwtauth.models.UserInfo]]] GetAllUsers() on controller jwtauth.api.Controllers.UserInfoController (jwtauth.api).  
+2023-08-08 21:17:31.394 -04:00  INF  Executed DbCommand (23ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT u."UserId", u."CreatedDate", u."DisplayName", u."Email", u."Password", u."UserName"
+FROM "UserInfo" AS u  
+2023-08-08 21:17:48.102 -04:00  INF  Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[jwtauth.models.UserInfo, jwtauth.models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.  
+2023-08-08 21:17:48.126 -04:00  INF  Executed action jwtauth.api.Controllers.UserInfoController.GetAllUsers (jwtauth.api) in 33506.9227ms  
+2023-08-08 21:17:48.127 -04:00  INF  Executed endpoint 'jwtauth.api.Controllers.UserInfoController.GetAllUsers (jwtauth.api)'  
+2023-08-08 21:17:48.148 -04:00  INF  Request finished HTTP/1.1 GET https://localhost:7011/api/user/GetAllUsers - - - 200 - application/json;+charset=utf-8 33588.9558ms  
+2023-08-08 21:18:03.936 -04:00  INF  Request starting HTTP/1.1 GET https://localhost:7011/api/user/GetAllUsers - -  
+2023-08-08 21:18:03.941 -04:00  INF  Executing endpoint 'jwtauth.api.Controllers.UserInfoController.GetAllUsers (jwtauth.api)'  
+2023-08-08 21:18:03.942 -04:00  INF  Route matched with {action = "GetAllUsers", controller = "UserInfo"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[jwtauth.models.UserInfo]]] GetAllUsers() on controller jwtauth.api.Controllers.UserInfoController (jwtauth.api).  
+2023-08-08 21:18:18.288 -04:00  INF  Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[jwtauth.models.UserInfo, jwtauth.models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.  
+2023-08-08 21:18:18.289 -04:00  INF  Executed action jwtauth.api.Controllers.UserInfoController.GetAllUsers (jwtauth.api) in 14346.5194ms  
+2023-08-08 21:18:18.289 -04:00  INF  Executed endpoint 'jwtauth.api.Controllers.UserInfoController.GetAllUsers (jwtauth.api)'  
+2023-08-08 21:18:18.289 -04:00  INF  Request finished HTTP/1.1 GET https://localhost:7011/api/user/GetAllUsers - - - 200 - application/json;+charset=utf-8 14353.1713ms  
+2023-08-08 21:21:17.657 -04:00  INF  User profile is available. Using '/Users/hyzic/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.  
+2023-08-08 21:21:19.547 -04:00  INF  Now listening on: https://localhost:7011  
+2023-08-08 21:21:19.550 -04:00  INF  Now listening on: http://localhost:5019  
+2023-08-08 21:21:19.610 -04:00  INF  Application started. Press Ctrl+C to shut down.  
+2023-08-08 21:21:19.610 -04:00  INF  Hosting environment: Development  
+2023-08-08 21:21:19.610 -04:00  INF  Content root path: /Users/hyzic/Documents/sandbox/c#/jwtauth/jwtauth.api  
+2023-08-08 21:21:21.353 -04:00  INF  Request starting HTTP/1.1 GET https://localhost:7011/swagger/index.html - -  
+2023-08-08 21:21:21.669 -04:00  INF  Request finished HTTP/1.1 GET https://localhost:7011/swagger/index.html - - - 200 - text/html;charset=utf-8 319.6133ms  
+2023-08-08 21:21:21.942 -04:00  INF  Request starting HTTP/1.1 GET https://localhost:7011/swagger/v1/swagger.json - -  
+2023-08-08 21:21:22.234 -04:00  INF  Request finished HTTP/1.1 GET https://localhost:7011/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 291.3880ms  
+2023-08-08 21:21:29.862 -04:00  INF  Request starting HTTP/1.1 GET https://localhost:7011/api/user/GetAllUsers - -  
+2023-08-08 21:21:29.870 -04:00  INF  Executing endpoint 'jwtauth.api.Controllers.UserInfoController.GetAllUsers (jwtauth.api)'  
+2023-08-08 21:21:29.894 -04:00  INF  Route matched with {action = "GetAllUsers", controller = "UserInfo"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[jwtauth.models.UserInfo]]] GetAllUsers() on controller jwtauth.api.Controllers.UserInfoController (jwtauth.api).  
+2023-08-08 21:21:46.149 -04:00  INF  Executed DbCommand (23ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT u."UserId", u."CreatedDate", u."DisplayName", u."Email", u."Password", u."UserName"
+FROM "UserInfo" AS u  
+2023-08-08 21:22:10.193 -04:00  INF  Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[jwtauth.models.UserInfo, jwtauth.models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.  
+2023-08-08 21:22:10.228 -04:00  INF  Executed action jwtauth.api.Controllers.UserInfoController.GetAllUsers (jwtauth.api) in 40329.4858ms  
+2023-08-08 21:22:10.229 -04:00  INF  Executed endpoint 'jwtauth.api.Controllers.UserInfoController.GetAllUsers (jwtauth.api)'  
+2023-08-08 21:22:10.249 -04:00  INF  Request finished HTTP/1.1 GET https://localhost:7011/api/user/GetAllUsers - - - 200 - application/json;+charset=utf-8 40387.8285ms  
+2023-08-08 21:22:19.738 -04:00  INF  Request starting HTTP/1.1 GET https://localhost:7011/api/user/GetAllUsers - -  
+2023-08-08 21:22:19.742 -04:00  INF  Executing endpoint 'jwtauth.api.Controllers.UserInfoController.GetAllUsers (jwtauth.api)'  
+2023-08-08 21:22:19.743 -04:00  INF  Route matched with {action = "GetAllUsers", controller = "UserInfo"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[jwtauth.models.UserInfo]]] GetAllUsers() on controller jwtauth.api.Controllers.UserInfoController (jwtauth.api).  
+2023-08-08 21:22:42.073 -04:00  INF  Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[jwtauth.models.UserInfo, jwtauth.models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.  
+2023-08-08 21:22:42.077 -04:00  INF  Executed action jwtauth.api.Controllers.UserInfoController.GetAllUsers (jwtauth.api) in 22334.3549ms  
+2023-08-08 21:22:42.078 -04:00  INF  Executed endpoint 'jwtauth.api.Controllers.UserInfoController.GetAllUsers (jwtauth.api)'  
+2023-08-08 21:22:42.079 -04:00  INF  Request finished HTTP/1.1 GET https://localhost:7011/api/user/GetAllUsers - - - 200 - application/json;+charset=utf-8 22340.2712ms  
